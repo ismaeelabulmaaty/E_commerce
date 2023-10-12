@@ -1,0 +1,153 @@
+<!-- main slider -->
+<section class=" paddin">
+    <div class="row gx-0">
+        <div class="col-md-9">
+            <owl-carousel-o [options]="mainSliderOptions">
+                <ng-template carouselSlide>
+                    <img src="./assets/imgs/slider-image-3.jpeg" alt="...." class="w-100" height="500">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/imgs/slider-image-2.jpeg" alt="...." class="w-100" height="500">
+                </ng-template>
+                <ng-template carouselSlide>
+                    <img src="./assets/imgs/slider-2.jpeg" alt="..." class="w-100" height="500">
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+        <div class="col-md-3">
+            <img src="./assets/imgs/ad-banner-2.jpg" alt="..." class="w-100" height="250">
+            <img src="./assets/imgs/ad-banner-3.jpg" alt="..." class="w-100" height="250">
+        </div>
+    </div>
+
+</section>
+<!-- categories -->
+<section *ngIf="categories.length>0">
+    <div class="container my-5 p-3">
+        <h2 class="text-main mb-4">Popular Categories</h2>
+        <owl-carousel-o [options]=" categoriesOptions" class="p-3">
+            <ng-container *ngFor="let category of categories">
+                <ng-template carouselSlide>
+                    <div class="product rounded slider">
+                        <div class="semo ">
+                            <img [src]="category.image" [alt]="category.name" [title]="category.name"
+                                class="w-100  img-border" height="270">
+                        </div>
+                        <!-- <h3 class="bg-light rounded border p-3 text-center h6">{{category.name}}</h3> -->
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div>
+</section>
+<!-- products -->
+<section *ngIf="products.length>0">
+    <div class="container my-5 p-3">
+        <div class="d-flex justify-content-center align-items-center  mt-5">
+            <h2 class="text-main mb-4">Popular Products</h2>
+            <input type="text" placeholder="Search..." class="input w-50 ms-auto mb-4" [(ngModel)]="term">
+        </div>
+        <div class="row g-4">
+            <div *ngFor="let product of products|search:term |slice:0:4" class="col-sm-6 col-md-4 col-lg-3 h-100">
+
+                <div class="bg-light rounded border p-3 text-center product">
+                    <i (click)="addProductToWishList(product._id,btAdd)" #btAdd role="button"
+                        class=" icons fa-solid fa-heart my-3 pb-2 text-main fa-xl"></i>
+                    <div [routerLink]="['/detalis',product._id]" role="button">
+                        <div class="semo">
+                            <img class="w-100" height="270" [src]="product.imageCover" [alt]="product.title">
+                        </div>
+                        <p class="text-main">{{product.category.name}}</p>
+                        <h4>{{product.title|cuttext:2}}</h4>
+                    </div>
+                    <div>
+                        <div class="d-flex justify-content-between text-muted my-4 w-75 m-auto">
+                            <span class="fw-bold">{{product.price}}EGP</span>
+                            <SPan class="fw-bold">
+
+                                <i [class.rating-color]="product.ratingsAverage >=num" *ngFor="let num of [1,2,3,4,5]"
+                                    class="fa-solid fa-star "></i>
+
+                                {{product.ratingsAverage}}</SPan>
+                        </div>
+                    </div>
+                    <button (click)="AddProduct(product,btnAdd)" #btnAdd
+                        class="btn bg-main w-75 m-auto text-light product">+Add
+                        Cart</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="  w-25 ms-auto mt-3 " routerLink="/products">
+            <button class="contactButton ms-auto"> See All
+                <div class="iconButton">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path fill="currentColor"
+                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
+                        </path>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</section>
+<!-- brand -->
+<section class="my-5" *ngIf="brands.length>0">
+    <div class="container my-3">
+        <h2 class="text-main mb-4">Popular Brand</h2>
+        <div class="row g-4">
+            <div class="col-sm-6 col-md-4 col-lg-3 h-100 " *ngFor="let brand of brands|slice:0:4">
+                <div class="bg-light rounded border p-3 text-center product">
+                    <div class="semo">
+                        <img class="w-100" height="270" [src]="brand.image" [alt]="brand.name">
+                    </div>
+                    <h4 class=" my-2 fw-bold text-main mt-3">{{brand.name}}</h4>
+                </div>
+            </div>
+            <div class="  w-25 ms-auto " routerLink="/brands">
+                <button class="contactButton ms-auto"> See All
+                    <div class="iconButton">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path fill="currentColor"
+                                d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z">
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="my-5">
+    <div class="container p-4 my-3">
+        <div class="row justify-content-between align-items-center g-4 ">
+            <div class=" col-md-4  ">
+                <div class="rounded shadow bg-main-light p-4">
+                    <img src="../../../assets/imgs/clock.svg" alt="">
+                    <h5 class="fw-bold my-2">10 minute grocery now</h5>
+                    <p class="text-left text-muted ">Get your order delivered to your doorstep at the earliest from
+                        FreshCart pickup stores near you.</p>
+                </div>
+            </div>
+            <div class=" col-md-4  ">
+                <div class="rounded shadow bg-main-light p-4">
+                    <img src="../../../assets/imgs/gift.svg" alt="">
+                    <h5 class="fw-bold my-2">Best Prices & Offers</h5>
+                    <p class="text-left text-muted ">Cheaper prices than your local supermarket, great cashback offers
+                        to top it off. Get best pricess & offers.</p>
+                </div>
+            </div>
+            <div class=" col-md-4  ">
+                <div class="rounded shadow bg-main-light p-4">
+                    <img src="../../../assets/imgs/refresh-cw.svg" alt="">
+                    <h5 class="fw-bold my-2">Easy Returns</h5>
+                    <p class="text-left text-muted ">Not satisfied with a product? Return it at the doorstep & get a
+                        refund within hours. No questions asked <span class="text-main">policy.</span> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

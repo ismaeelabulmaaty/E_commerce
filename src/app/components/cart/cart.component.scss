@@ -1,0 +1,26 @@
+.butn{
+    border: 1px solid #08e208;
+    color: #08e208;
+}
+.butn:hover{
+   background-color: #08e208;
+    color: #fff;
+}
+.templet{
+    margin: 200px;
+    padding-top: 200px;
+    color: #fff;
+    height: 100vh;
+    background-image: url(../../../assets/imgs/pngwing.com.png);
+    background-size: cover;
+    background-position: center;
+}
+.viza{
+    width: 50px;
+}
+h2{
+    font-weight: 800;
+    font-size: 2rem;
+  border-bottom: 3px solid #ffc908;
+  display: inline-block;
+}

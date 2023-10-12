@@ -1,0 +1,48 @@
+<section class="paddin" *ngIf="cartDetalis;else msg">
+    <div class="container w-75 mx-auto rounded shadow bg-main-light my-5 p-5">
+        <div class="text-center">
+            <i class="fa-solid fa-basket-shopping fa-bounce text-main text-center fa-3x"></i>
+        </div>
+        <div class="text-center">
+            <h2 class="text-center">My Cart</h2>
+        </div>
+        <h6 class=" fw-bold text-end border-bottom me-5 px-3 p-3">Total Price :<span
+                class="text-main">{{cartDetalis.totalCartPrice}}EGP</span></h6>
+        <div class="row border-bottom py-2" *ngFor=" let item of cartDetalis.products">
+            <div class="col-md-1">
+                <img class="w-100" [src]="item.product.imageCover" [alt]="item.product.title">
+            </div>
+            <div class="col-md-11 ">
+                <div class="row  d-flex justify-content-evenly  align-items-center">
+                    <div class="col-md-6">
+                        <h3 class="h6 fw-bold text-muted">{{item.product.title}}</h3>
+                        <button #btnRemove (click)="removeItem(item.product._id,btnRemove)"
+                            class="btn  m-0 p-0 text-danger"><i class="fa-solid fa-trash-can p-2"></i>Remove</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button #btn1 (click)="changeCount(item.count -1,item.product._id, btn1,btn2)"
+                            class="btn btn-sm border-success"><i class="fa-solid fa-minus"></i></button>
+                        <span class=" mx-2">{{item.count}}</span>
+                        <button #btn2 (click)="changeCount(item.count +1,item.product._id, btn1,btn2)"
+                            class="btn btn-sm border-success"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="text-main   mb-0 ">Price : {{item.price}}EGP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between w-75 mx-auto">
+            <button (click)="clear()" type="button" class="btn btn-outline-danger mt-4 fw-bold">Clear All</button>
+            <!-- <button type="button" class="btn btn-outline-danger">Danger</button> -->
+            <button [routerLink]="['/payment',cartDetalis._id]" class="btn butn mt-4 fw-bold ">Online Payment <img
+                    class="viza" src="./assets/imgs/prepaid-visa-hero.webp" alt=""></button>
+        </div>
+
+    </div>
+</section>
+
+<ng-template class="paddin mt-5" #msg>
+    <div class="w-50 mx-auto templet mt-5 mb-0">
+    </div>
+</ng-template>

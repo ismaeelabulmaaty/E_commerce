@@ -1,0 +1,43 @@
+<section class="paddin">
+    <div class="container my-5 pt-5 ">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-10">
+                <table class="table table-striped table-success table-borderless ronded shadow ">
+                    <thead class="ronded shadow">
+                        <tr>
+                            <th scope="col-3">ID</th>
+                            <th scope="col-3">User Name</th>
+                            <th class="text-center" scope="col-3">All Orders </th>
+                            <!-- <th scope="col-2"> </th> -->
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let item of userData">
+                        <tr>
+                            <td scope="row">{{item.id}}</td>
+                            <td width="150">{{ item.user.name }}</td>
+                            <td>
+                                <table class="table table-striped ronded shadow   table-success table-borderless"
+                                    *ngFor="let cartItem of item.cartItems">
+                                    <thead class="ronded shadow">
+                                        <tr>
+                                            <th scope="col-2">Image</th>
+                                            <th class=" text-center" scope="col-3">Title</th>
+                                            <th class=" text-center" scope="col-3">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><img class="w-25" [src]="cartItem.product.imageCover"></td>
+                                            <td class=" text-center">{{ cartItem.product.title }}</td>
+                                            <td class=" text-center">{{item.totalOrderPrice}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

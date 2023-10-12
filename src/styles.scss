@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+  @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Dancing+Script:wght@700&family=Encode+Sans+Expanded:wght@300&display=swap');
+  @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+$main-color: #0aad0a;
+$light-color: #f0f3f2;
+$shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+  rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+  rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+$font-family: "Encode Sans Expanded", sans-serif;
+$rating-color: rgb(255, 201, 8);
+$main-transition: 0.8s;
+body{
+    font-family: $font-family;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.rating-color {
+  color: $rating-color;
+}
+
+.cursor-pointer {
+cursor: pointer;
+}
+
+.font-sm {
+  font-size: 14px;
+}
+
+.text-main {
+  color: $main-color;
+}
+
+.text-main-light {
+  color: $light-color;
+}
+
+.bg-main {
+  background-color: $main-color !important;
+}
+
+.bg-main-light {
+  background-color: $light-color !important;
+}
+
+.main-btn {
+  border: unset;
+  cursor: pointer;
+  color: #fff !important;
+  background-color: $main-color !important;
+  padding: 4px 8px;
+  transition: background-color $main-transition;
+  border-radius: 5px;
+
+  
+  &:disabled{
+    background-color: #067a0663 !important;
+    color: #ffffff8e !important;
+    cursor: not-allowed;
+  }
+}
+
+.main-btn:hover {
+  background-color: #08e208;
+}
+
+.product:hover{
+  box-shadow: $shadow!important;
+  border:2px solid $main-color!important;
+  }
+.product .btn{
+  opacity: 0 !important;
+  transition:transform 1s ,opacity 1s !important;
+  transform: translateY(100%) !important;
+}
+.product:hover .btn{
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+}
+
+.product .icons{
+  opacity: 0 !important;
+  transition:transform 1s ,opacity 1s !important;
+  transform: translateY(100%) !important;
+}
+.product:hover .icons{
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+}
+
+a , a:hover{
+  color: black;
+  text-decoration: none;
+}
+.semo{
+  overflow: hidden;
+}
+.semo img {
+  width: 100%;
+  transition: 0.6s all ease-in-out ;
+}
+
+.semo:hover img {
+  transform: scale(1.2);
+}
+
+.active-link{
+  color: #fff !important;
+background-color: $main-color !important;
+border-radius: 10px!important;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: $light-color;
+}
+::-webkit-scrollbar-thumb{
+background-color: $main-color;
+}
+.paddin{
+  padding-top: 73px;
+}
+
+.btn-up{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid #ffc908;
+  border-radius: 10px;
+  z-index: 99;
+  font-size: 24px;
+  background-color: #0aad0a;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  transition: 1s all ease-in-out ;
+}
+.btn-up:hover i {
+  /* transition:scale(1.5); */
+  font-size:28px;
+  color: #ffc908;
+}
+.ngx-pagination .current {
+  background-color: #0aad0a !important;
+}

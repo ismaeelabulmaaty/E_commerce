@@ -1,0 +1,20 @@
+<section class="paddin">
+    <div class="container my-5 pt-5 w-75 mx-auto shadow bg-main-light rounded">
+        <h2 class="my-2 text-center fw-bold">CheckOut Session</h2>
+        <form [formGroup]="orderForm" (ngSubmit)="handleForm()" class="p-4">
+            <div>
+                <label for="details" class="fw-bold my-2">Details</label>
+                <input type="text" id="details" formControlName="details" class="form-control">
+            </div>
+            <div>
+                <label for="phone" class="fw-bold my-2">Phone</label>
+                <input type="tel" id="phone" formControlName="phone" class="form-control">
+            </div>
+            <div>
+                <label for="city" class="fw-bold my-2">City</label>
+                <input type="text" id="city" formControlName="city" class="form-control">
+            </div>
+            <button class="main-btn my-2 mt-4">CheckOut</button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,44 @@
+<section class=" paddin" *ngIf="step1">
+    <div class="container my-5 w-50 mx-auto ronded shadow  p-4 bg-main-light">
+        <form class="my-3 pb-5" [formGroup]="forgotForm" (ngSubmit)="forgotPassword(forgotForm)">
+            <label class="fw-bold my-2" for="email">Email</label>
+            <input formControlName="email" type="email" class="form-control" placeholder="enter your emil">
+            <p *ngIf="successMessage" class="alert alert-success text-white">{{successMessage}}</p>
+            <p *ngIf="errorMessage" class="alert alert-danger  ">{{errorMessage}}</p>
+            <button class="btn text-white bg-main float-end  mt-4">Send Code
+                <span *ngIf="isLoading"><i class="fas fa-spin fa-spinner text-warning"></i></span>
+            </button>
+        </form>
+    </div>
+</section>
+
+
+
+<section class="paddin" *ngIf="step2">
+    <div class="container my-5 w-50 mx-auto ronded shadow  p-4 bg-main-light">
+        <form class="my-3 pb-5" [formGroup]="resetCodeForm" (ngSubmit)="verifyCode(resetCodeForm)">
+            <label class="fw-bold my-2" for="">Reset Code</label>
+            <input formControlName="resetCode" type="number" class="form-control" placeholder="enter your code">
+            <p *ngIf="successMessage" class="alert alert-success text-white">{{successMessage}}</p>
+            <p *ngIf="errorMessage" class="alert alert-danger  ">{{errorMessage}}</p>
+            <button class="btn bg-main float-end text-white mt-4">Reset Code
+                <span *ngIf="isLoading"> <i class="fas fa-spin fa-spinner text-warning"></i></span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!--  
+<section class="paddin" *ngIf="step3">
+    <div class="container my-5 w-50 mx-auto ronded shadow  p-4 bg-main-light">
+        <form class="my-3 pb-5" [formGroup]="resetPasswordForm" (ngSubmit)="newPassword()">
+            <label class="fw-bold my-2" for="">Reset Password</label>
+            <input formControlName="newPassword" type="password" class="form-control" placeholder="enter new password">
+            <p class="alert alert-success text-cuccess"></p>
+            <p class="alert alert-danger text-cuccess"></p>
+            <button class="btn bg-main float-end text-white mt-4">Reset Password
+                <span *ngIf="isLoading"> <i class="fas fa-spin fa-spinner text-warning"></i></span>
+            </button>
+        </form>
+    </div>
+</section> -->
